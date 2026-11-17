@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { ArrowUpRight, BookOpen, Code, Smartphone, Sparkles } from "lucide-react";
+import { ArrowUpRight, BookOpen, Code, Download, Smartphone, Sparkles } from "lucide-react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { hero } from "@/lib/site";
 import SplitWords from "./SplitWords";
@@ -75,7 +75,7 @@ export default function Hero() {
             {hero.intro}
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-1">
+          <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-3">
             <div data-hero-fade>
               <Magnetic>
                 <ScrollLink
@@ -95,6 +95,18 @@ export default function Hero() {
                 >
                   Contact me
                 </ScrollLink>
+              </Magnetic>
+            </div>
+            <div data-hero-fade>
+              <Magnetic>
+                <a
+                  href="/CV-Faris-Naufalianto.pdf"
+                  download="CV-Faris-Naufalianto.pdf"
+                  className="inline-flex items-center gap-2 rounded-full border border-cream/25 px-7 py-3.5 text-[0.95rem] text-cream transition-colors hover:border-coral hover:text-coral-soft"
+                >
+                  <Download size={17} aria-hidden="true" />
+                  Download CV
+                </a>
               </Magnetic>
             </div>
           </div>
