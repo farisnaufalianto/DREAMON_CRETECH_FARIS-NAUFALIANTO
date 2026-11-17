@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode } from "react";
+import { createElement, type ElementType } from "react";
 
 type Props = {
   text: string;
@@ -20,11 +20,12 @@ export default function SplitWords({
   accentFrom,
   accentClass = "text-coral-soft",
 }: Props) {
-  const Tag = as as ElementType<{ className?: string; children?: ReactNode }>;
   const words = text.split(" ");
 
-  return (
-    <Tag className={className}>
+  return createElement(
+    as,
+    { className },
+    <>
       <span className="sr-only">{text}</span>
       <span aria-hidden="true">
         {words.map((w, i) => (
@@ -42,6 +43,6 @@ export default function SplitWords({
           </span>
         ))}
       </span>
-    </Tag>
+    </>
   );
 }
