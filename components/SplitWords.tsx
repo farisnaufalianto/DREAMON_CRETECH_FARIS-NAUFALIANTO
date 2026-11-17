@@ -1,4 +1,4 @@
-import type { ElementType } from "react";
+import type { ElementType, ReactNode } from "react";
 
 type Props = {
   text: string;
@@ -16,11 +16,13 @@ export default function SplitWords({
   text,
   wordAttr,
   className,
-  as: Tag = "span",
+  as = "span",
   accentFrom,
   accentClass = "text-coral-soft",
 }: Props) {
+  const Tag = as as ElementType<{ className?: string; children?: ReactNode }>;
   const words = text.split(" ");
+
   return (
     <Tag className={className}>
       <span className="sr-only">{text}</span>
@@ -30,9 +32,8 @@ export default function SplitWords({
             <span className="inline-block overflow-hidden pb-[0.1em] align-bottom">
               <span
                 {...{ [wordAttr]: "" }}
-                className={`inline-block will-change-transform ${
-                  accentFrom !== undefined && i >= accentFrom ? accentClass : ""
-                }`}
+                className={`inline-block will-change-transform ${accentFrom !== undefined && i >= accentFrom ? accentClass : ""
+                  }`}
               >
                 {w}
               </span>
